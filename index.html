@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app='movieSearch'>
+<head>
+  <meta charset='utf-8'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js" type="text/javascript"></script>
+  <script src='./js/app.js'></script>
+  <script src='./js/controllers.js'></script>
+  <script src='./js/directives.js'></script>
+  <script src='./js/filters.js'></script>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+  <h1 class='title'>Angular OMDb API Search</h1>
+  <h3 class='subtitle'>Enter a movie by title.</h3>
+  <div class='movieDisplay' ng-controller='getMovies as GM'>
+  <input class='searchBar' type='text' ng-model='searchBar' placeholder='enter title here'>
+  <button type='submit' ng-click='GM.retrieve(searchBar)'>Search!</button>
+  <div>
+    <p class='successMsg' ng-show='searchBar'>
+      There were {{GM.movieArr.length}} movies found!
+    </p>
+    <!-- <ul>
+      <li ng-repeat='movie in GM.movieArr'>
+        {{movie.Title}}
+
+      </li>
+    </ul> -->
+  </div>
+    <table class='movieTable'>
+      <tr ng-repeat='movie in GM.movieArr'>
+        <td>
+          <span class='movieTitle'>{{movie.Title}}</span>
+        </td>
+        
+        <td>
+          {{movie.Year}}
+        </td>
+        <td>
+          <img class='thumb' ng-src={{movie.Poster}} alt='#'>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
