@@ -28,7 +28,7 @@
     </ul> -->
   </div>
     <table class='movieTable' ng-controller='popUp as PU'>
-      <tr ng-repeat='movie in GM.movieArr' ng-click='PU.retrieve(movie.Title)' ng-class="{'expanded': PU.selectedIndex > 0}">
+      <tr ng-repeat='movie in GM.movieArr' ng-click='PU.retrieve(movie.Title)' ng-class="{'expanded': PU.selectedIndex > 0 && movie.Title == PU.movieArr[0].Title}">
         <td>
           <span class='movieTitle'>{{movie.Title}}</span><br>
           Type: {{movie.Type}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMDb ID: {{movie.imdbID}}<br>
