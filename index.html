@@ -39,6 +39,11 @@
         <td>
           <img class='thumb' ng-src={{movie.Poster}} alt='#'>
         </td>
+        <td>
+          <form ng-controller='popUp as PU'>
+            <button type='submit' ng-click='PU.retrieve(movie.Title)'>Find out more</button>
+          </form>
+        </td>
       </tr>
     </table>
   </div>

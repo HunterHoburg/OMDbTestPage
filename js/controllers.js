@@ -3,8 +3,8 @@ app.controller('getMovies', ['$http', function($http){
   vm.movieArr = [];
   vm.retrieve = function(title) {
     titleParse(title);
-    vm.movieArr = [];
-    $http.get('http://www.omdbapi.com/?s='+title+'&tomatoes=true&r=json').success(function(data){
+    // vm.movieArr = [];
+    $http.get('http://www.omdbapi.com/?s='+title+'&r=json').success(function(data){
       console.log(data);
       for (var j = 0; j < data.Search.length - 1; j++) {
         var newMovie = {};
@@ -22,5 +22,8 @@ app.controller('popUp', ['$http', function($http) {
   var vm = this;
   vm.retrieve = function(title) {
     titleParse(title);
+    $http.get('http://www.omdbapi.com/?t='+title+'&plot=full&tomatoes=true&r=json').success(function(data){
+      console.log(data);
+    })
   }
 }])
