@@ -17,7 +17,8 @@
   <button type='submit' ng-click='GM.retrieve(searchBar)'>Search!</button>
   <div>
     <p class='successMsg' ng-show='searchBar'>
-      There were {{GM.movieArr.length}} movies found!
+      There were {{GM.movieArr.length}} movies found!<br>
+      Click one to find out more.
     </p>
     <!-- <ul>
       <li ng-repeat='movie in GM.movieArr'>
@@ -26,23 +27,20 @@
       </li>
     </ul> -->
   </div>
-    <table class='movieTable'>
-      <tr ng-repeat='movie in GM.movieArr'>
+    <table class='movieTable' ng-controller='popUp as PU'>
+      <tr ng-repeat='movie in GM.movieArr' ng-click='PU.retrieve(movie.Title)' ng-class="{'expanded': PU.selectedIndex > 0}">
         <td>
           <span class='movieTitle'>{{movie.Title}}</span><br>
-          Type: {{movie.Type}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMDb ID: {{movie.imdbID}}
+          Type: {{movie.Type}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMDb ID: {{movie.imdbID}}<br>
+          <p class='detailedDescription' ng-show="PU.selectedIndex > 0">Metascore: {{PU.movieArr[0].Metascore}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{PU.movieArr[0].Runtime}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{PU.movieArr[0].Genre}}<br>Actors: {{PU.movieArr[0].Actors}} <br>Producer: {{PU.movieArr[0].Production}} Rated: {{PU.movieArr[0].Rated}} Writer: {{PU.movieArr[0].Writer}} Director: {{PU.movieArr[0].Director}}<br><br>
+          <span class='plot'>{{PU.movieArr[0].Plot}}</span>
+        </p>
         </td>
-
         <td>
           {{movie.Year}}
         </td>
         <td>
           <img class='thumb' ng-src={{movie.Poster}} alt='#'>
-        </td>
-        <td>
-          <form ng-controller='popUp as PU'>
-            <button type='submit' ng-click='PU.retrieve(movie.Title)'>Find out more</button>
-          </form>
         </td>
       </tr>
     </table>

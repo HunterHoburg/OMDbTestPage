@@ -20,7 +20,8 @@ body {
 }
 
 .successMsg {
-  margin-left: 40%;
+  margin-left: 0 auto;
+  text-align: center;
 }
 
 .thumb {
@@ -30,6 +31,9 @@ body {
   margin: 0 auto;
   border-collapse: separate;
   border-spacing: 5px 5px;
+}
+.expanded {
+  height: 15rem !important;
 }
 .movieTable td {
   border-radius: 5px;
@@ -72,4 +76,12 @@ body {
 .movieTitle {
   font-weight: bolder;
   font-size: 1.5rem;
+}
+.detailedDescription {
+  font-size: .8rem;
+  font-style: italic;
+}
+
+.plot {
+  padding: 0 5rem 0 5rem;
 }
