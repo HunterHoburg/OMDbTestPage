@@ -31,7 +31,6 @@ app.controller('popUp', ['$http', function($http) {
     titleParse(title);
     $http.get('http://www.omdbapi.com/?t='+title+'&plot=full&tomatoes=true&r=json').success(function(data){
       var newMovie = {};
-      console.log(data);
       newMovie = data
       vm.movieArr.push(newMovie);
     })
