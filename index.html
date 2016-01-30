@@ -29,9 +29,10 @@
     <table class='movieTable'>
       <tr ng-repeat='movie in GM.movieArr'>
         <td>
-          <span class='movieTitle'>{{movie.Title}}</span>
+          <span class='movieTitle'>{{movie.Title}}</span><br>
+          Type: {{movie.Type}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMDb ID: {{movie.imdbID}}
         </td>
-        
+
         <td>
           {{movie.Year}}
         </td>

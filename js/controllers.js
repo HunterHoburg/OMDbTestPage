@@ -1,7 +1,5 @@
 app.controller('getMovies', ['$http', function($http){
   var vm = this;
-  vm.title = '';
-  vm.display;
   vm.movieArr = [];
   vm.retrieve = function(title) {
     titleParse(title);
@@ -15,7 +13,4 @@ app.controller('getMovies', ['$http', function($http){
       }
     })
   };
-  vm.displayMovies = function() {
-    console.log(vm.movieArr);
-  }
 }])
